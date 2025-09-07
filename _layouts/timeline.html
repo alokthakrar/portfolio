@@ -1,0 +1,96 @@
+---
+layout: default
+---
+
+<div class="timeline-container">
+    <h1>My Timeline</h1>
+    <ul class="timeline">
+        <li>
+            <div class="timeline-node timeline-node-right">
+                <h3>NSF REU Research Intern</h3>
+                <h4 class="timeline-company">University of Texas, Arlington</h4>
+                <span class="timeline-date">May 2025 - Present</span>
+                <p class="timeline-summary">Built a 100+ hour age/context annotated database of cat vocalizations for animal speech & development research.</p>
+                <div class="timeline-description">
+                    <p>Arlington, Texas</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="timeline-node timeline-node-left">
+                <h3>Student Researcher</h3>
+                <h4 class="timeline-company">University of California, San Francisco</h4>
+                <span class="timeline-date">Feb. 2025- Present</span>
+                <p class="timeline-summary">Developing tools to predict causal genes of kidney disease using machine learning and big data techniques.</p>
+                <div class="timeline-description">
+                    <p>San Francisco, CA</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="timeline-node timeline-node-right">
+                <h3>Undergraduate Course Staff</h3>
+                <h4 class="timeline-company">University of California, Berkeley (EECS 16A)</h4>
+                <span class="timeline-date">Jan 2025 - Present</span>
+                <p class="timeline-summary">Currently hold office hours, homework parties and more for Berkeley's 300 person intro linear-algebra and signals course.</p>
+                <div class="timeline-description">
+                    <p>Berkeley, CA</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="timeline-node timeline-node-left">
+                <h3>Software Engineering Intern</h3>
+                <h4 class="timeline-company">Pawrents</h4>
+                <span class="timeline-date">Sep 2024 - Jan 2025</span>
+                <p class="timeline-summary">Worked on data visualization and AI-powered marketing tools for dog-boarding startup.</p>
+                <div class="timeline-description">
+                    <p>San Francisco, CA</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="timeline-node timeline-node-right">
+                <h3>Software Engineering Intern</h3>
+                <h4 class="timeline-company">Enerpro Inc</h4>
+                <span class="timeline-date">June 2023 - August 2024</span>
+                <p class="timeline-summary">Programmed SPI and I2C drivers on the SAMC21 chip for a high-power 24 KW AC-DC converter.</p>
+                <div class="timeline-description">
+                    <p>Goleta, CA</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="timeline-node timeline-node-left">
+                <h3>Summer Research Intern</h3>
+                <h4 class="timeline-company">University of California, Santa Barbara</h4>
+                <span class="timeline-date">June 2022 - August 2022</span>
+                <p class="timeline-summary">Built pipeline for millions of cryptocurrencies to assess the profitability and long term growth of Layer 2 crypto systems.</p>
+                <div class="timeline-description">
+                    <p>Santa Barbara, CA</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="timeline-node timeline-node-right">
+                <h3>Student Researcher</h3>
+                <h4 class="timeline-company">University of California, Santa Barbara</h4>
+                <span class="timeline-date">June 2021 - May 2023</span>
+                <p class="timeline-summary">Simulated the effects of hypervelocity penetrators for the purpose of planetary defense using HPC.</p>
+                <div class="timeline-description">
+                    <p>Santa Barbara, CA</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<script>
+    document.querySelectorAll('.timeline-node h3').forEach(item => {
+        item.addEventListener('click', event => {
+            const description = item.parentElement.querySelector('.timeline-description');
+            description.classList.toggle('active');
+            item.classList.toggle('active');
+        });
+    });
+</script>

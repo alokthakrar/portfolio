@@ -3,19 +3,11 @@ layout: about
 permalink: /
 profile:
   align: right
-  image: profile.png
+  image: betterstipple.png
 published: true
 ---
 
-[Gradfolio](https://github.com/jitinnair1/gradfolio){:target="_blank"} is a responsive, dark-mode ready Jekyll theme designed keeping academia in mind. The easiest way to install the theme is to fork it using GitHub. Check the README file for [instructions](https://github.com/jitinnair1/gradfolio#installation){:target="_blank"}.
 
-If you want to use this space to write your biography here, edit the `index.md` file. You can put a picture in, too. Rename your picture to `profile.png` and put it in the `assets/images/` folder.
+Hi! I'm Alok, an undergrad at UC Berkeley excited about CS, math, and everything in between. Formerly, I've researched [novel planetary defense methods](https://www.deepspace.ucsb.edu/projects/pi-terminal-planetary-defense), worked in [power electronics computer-engineering](https://www.enerpro-inc.com/), and developed tutoring content for Berkeley's [lin-alg course](https://csmentors.studentorg.berkeley.edu/#/team){:target="_blank"}.
 
-The social-icons footer can be used to link profiles from GitHub, OrcID and ReasearchGate aprart form the usual Twitter, LinkedIn and Facebook. You can add your user ID in the `_config.yml` file to link your accounts.
-
-PS: If you liked the theme, do star it on GitHub!
-
-### Also, check out:
-
-- [autoCV](https://github.com/jitinnair1/autocv) - a LaTeX template that builds and deploys the CV using GitHub Actions, so you will always have a ready link for your latest CV
-- [Tail](https://github.com/jitinnair1/tail) - a minimal, quick-setup template for a blog
+I'm currently a [CS research intern at UTA](https://uta-acl2.github.io/index.html), using ML and computational linguistics tools to investigate animal language & communication. I'm also involved in computational genomics research at UCSF. Broadly, I'm excited about education, implications of computing, and chess.

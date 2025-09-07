@@ -20,3 +20,15 @@ $text-color: #333;
 $body-bg-dark: #23272d;
 $projectbox-dark: lighten(#98a0ac, 2%);
 $text-color-dark: #98a0ac;
+
+// Media query breakpoints
+$on-phone: 450px;
+$on-palm: 660px;
+$on-laptop: 1000px;
+
+// Media query mixin
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}

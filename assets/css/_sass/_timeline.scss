@@ -1,0 +1,125 @@
+.timeline-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.timeline {
+    list-style: none;
+    padding: 0;
+    position: relative;
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background-color: #ccc;
+    transform: translateX(-50%);
+}
+
+.timeline li {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.timeline-node {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    width: 45%;
+}
+
+.timeline-node-right {
+    left: calc(50% + 30px);
+}
+
+.timeline-node-left {
+    left: calc(5% - 70px);
+}
+
+.timeline-node h3 {
+    margin-top: 0;
+    cursor: pointer;
+    color: #333;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    position: relative;
+    padding-right: 20px;
+}
+
+.timeline-node h3::after {
+    content: '\25BC';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease-out;
+}
+
+.timeline-node h3.active::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.timeline-date {
+    display: block;
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.timeline-description {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding-top: 0;
+}
+
+.timeline-description.active {
+    max-height: 200px; /* Adjust as needed */
+    padding-top: 10px;
+}
+
+.timeline-description p {
+    margin-bottom: 0;
+    line-height: 1.6;
+    color: #555;
+}
+
+.timeline li:before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: #007bff;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.timeline-node-right:after {
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: -30px;
+    width: 30px;
+    height: 2px;
+    background-color: #007bff;
+}
+
+.timeline-node-left:after {
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: 100%;
+    width: 30px;
+    height: 2px;
+    background-color: #007bff;
+}

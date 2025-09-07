@@ -5,117 +5,116 @@
   padding: 2rem;
 }
 
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  /* Compensate for excess margin on outer gallery flex items */
-  margin: -1rem -1rem;
-}
-
-.projectTile {
-  /* Minimum width of 200px and grow to fit available space */
-  flex: 1 0 200px;
+.projectCard {
   border-radius: 15px;
   background: $projectbox;
-  @media (prefers-color-scheme: dark) {
+  margin-bottom: 2rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  .projectCard {
     background: $projectbox-dark;
   }
-  height: 200px;
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.projectCard a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-image-container {
   width: 100%;
+  height: 300px;
   overflow: hidden;
-  display: table;
 }
 
-.projectTile a {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  cursor: pointer;
+.projectThumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-.projectTile a span {
+.projectCard:hover .projectThumbnail {
+  transform: scale(1.05);
+}
+
+.project-image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
   display: flex;
+  align-items: center;
   justify-content: center;
-}
-
-.projectTile a span h2 {
-  font-size: 1.5rem;
-  padding: 1rem;
-  color: $projectbox-text;
-}
-
-.projectTile:hover a span h2 {
-  display: none;
-}
-
-.projectTile a span p {
-  display: none;
-}
-
-.projectTile:hover a span p {
+  color: #999;
   font-size: 1.2rem;
-  display: flex;
-  padding: 1rem;
-  color: $projectbox-text;
 }
 
+.project-text-container {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.project-text-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.project-text-container p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #34495e;
+}
+
+@media (prefers-color-scheme: dark) {
+  .project-text-container h2 {
+    color: #ffffff;
+  }
+
+  .project-text-container p {
+    color: #e0e0e0;
+  }
+}
+
+/* Responsive design for mobile */
 @include media-query($on-phone) {
-  @media screen and (max-width: $on-phone){
+  .ProjectContainer {
+    padding: 1rem;
+  }
 
-    .projectTile {
-      height: 80px;
-    }
+  .project-image-container {
+    height: 200px;
+  }
 
-    .projectTile a span h2 {
-      font-size: 1.2rem;
-    }
+  .project-text-container {
+    padding: 1rem;
+  }
 
-    .projectTile:hover a span p {
-      display: none;
-    }
+  .project-text-container h2 {
+    font-size: 1.5rem;
+  }
 
-    .projectTile:hover a span h2 {
-      display: flex;
-    }
-
-
+  .project-text-container p {
+    font-size: 1rem;
   }
 }
 
 @include media-query($on-palm) {
-  @media screen and (max-width: $on-palm){
+  .project-image-container {
+    height: 250px;
+  }
 
-    .projectTile {
-      height: 100px;
-    }
-
-    .projectTile a span h2 {
-      font-size: 1.3rem;
-    }
-
-    .projectTile:hover a span p {
-      display: none;
-    }
-
-    .projectTile:hover a span h2 {
-      display: flex;
-    }
-
+  .project-text-container h2 {
+    font-size: 1.6rem;
   }
 }
-
-
-@supports (display: grid) {
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 2rem;
-  }
-
-  .gallery,
-  .gallery-item {
-    margin: 0;
-  }
-}
-
-//Based on: https://codepen.io/GeorgePark/pen/vdqYom
