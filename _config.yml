@@ -48,6 +48,8 @@ collections:
     output: true
     permalink: /projects/:name/
     order:
+      - Robotics23-24.md
+      - Robotics22-23.md
       - gantry-game.md
       - eloify.md
       - kinetic-sculpture.md
@@ -55,7 +57,6 @@ collections:
       - UCSBites.md
       - post-pipeline.md
       - quizbowl-bot.md
-      - kinetic-sculpture.md
       - LSB.md
 
   timeline:

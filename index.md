@@ -3,7 +3,7 @@ layout: about
 permalink: /
 profile:
   align: right
-  image: betterstipple.png
+  image: profile/betterstipple.png
 published: true
 ---
 
