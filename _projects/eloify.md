@@ -2,7 +2,7 @@
 layout: post
 title: eloify
 description: use the ELO rating system to streamline studying.
-thumbnail: /assets/images/thumbnails/stippledalok.png
+thumbnail: /assets/images/projects/eloify.png
 ---
 
 
