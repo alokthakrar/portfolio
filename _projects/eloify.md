@@ -1,149 +1,41 @@
 ---
 layout: post
-title: longer Project Title
-description: short project description
+title: eloify
+description: use the ELO rating system to streamline studying.
 thumbnail: /assets/images/thumbnails/stippledalok.png
 ---
 
-Example modified from [here](http://www.unexpected-vortices.com/sw/rippledoc/quick-markdown-example.html){:target="_blank"}.
 
-H1 Header
+
+The Project
 ============
 
-Paragraphs are separated by a blank line.
 
-2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists
-look like:
+I really love chess puzzles. Like magic, websites like lichess or chess-tempo managed to extract interesting positions, use crowdsourcing to find which ones were actually tactically challenging, and serve users puzzles which match their skill levels. 
 
-  * this one
-  * that one
-  * the other one
+The way this system works is through ELO. ELO is a system generally used in PvP style games, where each user is assigned a prediction of their skill that goes up or down relative to their wins and losses. If you beat a better opponent, your predicted skill goes up by a larger quantity than a weaker opponent. 
 
-Note that the actual text
-content starts at 4-columns in.
+Chess puzzles are a slight tweak to this system. It treats both puzzles and users as a part of the *same pool*, but as users that can never go up against one another. In this way, both puzzles and users can be evaluated relative to their peers, allowing users to get matched with tactics targeted towards their rating. 
 
-> Block quotes are
-> written like so.
->
-> They can span multiple paragraphs,
-> if you like.
+Eloify generalizes this process. What if instead of being restricted to chess puzzles, you could drop in your course textbook or exams and turn that into a meaningful question bank to be queried? 
 
 
-H2 Header
+Implementation
 ------------
+### Architecture ###
+I used React, Django, and PostgreSQL as the foundational frameworks of the project. For frontend, I used the tried-and-tested React Bootstrap pretty extensively for beautiful, prebuilt components with minimal boilerplate and setup required. 
 
-Here's a numbered list:
+### Documents ###
 
- 1. first item
- 2. second item
- 3. third item
+After experimenting with some OCR and document querying models, I found these to ultimately be ineffective. There exists no centralized dataset for question and answer segmentation for document layout, and fine-tuning existing models would likely be a labourious process requiring copious amounts of training data. 
 
-Note again how the actual text starts at 4 columns in (4 characters
-from the left side). Here's a code sample:
-
-    # Let me re-iterate ...
-    for i in 1 .. 10 { do-something(i) }
-
-As you probably guessed, indented 4 spaces. By the way, instead of
-indenting the block, you can use delimited blocks, if you like:
-
-~~~
-define foobar() {
-    print "Welcome to flavor country!";
-}
-~~~
-
-(which makes copying & pasting easier). You can optionally mark the
-delimited block for Pandoc to syntax highlight it by specifying the languagae after the start of a block (e.g. `~~~cpp`) which would look like :
-
-~~~cpp
-#include <iostream>
-using namespace std;
-
-int main() 
-{    
-    cout << "Size of char: " << sizeof(char) << " byte" << endl;
-    cout << "Size of int: " << sizeof(int) << " bytes" << endl;
-    cout << "Size of float: " << sizeof(float) << " bytes" << endl;
-    cout << "Size of double: " << sizeof(double) << " bytes" << endl;
-
-    return 0;
-}
-~~~
-
-### An H3 header ###
-
-Now a nested list:
-
- 1. First, get these ingredients:
-
-      * carrots
-      * celery
-      * lentils
-
- 2. Boil some water.
-
- 3. Dump everything in the pot and follow
-    this algorithm:
-
-        find wooden spoon
-        uncover pot
-        stir
-        cover pot
-        balance wooden spoon precariously on pot handle
-        wait 10 minutes
-        goto first step (or shut off burner when done)
-
-    Do not bump wooden spoon or it will fall.
-
-Notice again how text always lines up on 4-space indents (including
-that last line which continues item 3 above).
-
-Here's a footnote [^1].
-
-[^1]: Some footnote text.
-
-Tables can look like this:
-
-| Header 1 | Header 2                   | Header 3 |
-|:--------:|:--------------------------:|:--------:|
-| data1a   | Data is longer than header | 1        |
-| d1b      | add a cell                 |          |
-| lorem    | ipsum                      | 3        |
-|          | empty outside cells        |          |
-| skip     |                            | 5        |
-| six      | Morbi purus                | 6        |
+I instead decided to use a functional extension of the VQA built into multimodal LLMs. In my case, I feed these into a gemini flask model, then query the model for structured JSON of all questions provided on the page. Later, I can either scrape corresponding solutions or generate solutions and test cases on the fly. On the site, users can drag-and-drop questions into the applications and place them into study sets, which can be accessed by all users. 
 
 
-A horizontal rule follows.
+### Code ###
 
-***
+Another interesting challenge was code — how can you create an environment in which users can run Python snippets for validation of Python exams, while having it be correctly sanitized? The solution lied in Docker. This was my first time using Docker, period! My solution involved creating a new container for each user, with limited scope and resources, and allowing them to run their code in that traiged environment, free from any injection attacks. Setting this up was definitely pretty cool, and is a tool I'm definitely keeping in my toolbox for future websites. 
 
-Here's a definition list:
+Most other features served to be pretty standard problems, including users, question storage and retrieval, and LLM oriented question tagging. 
 
-apples
-  : Good for making applesauce.
-
-oranges
-  : Citrus!
-
-tomatoes
-  : There's no "e" in tomatoe.
-
-Again, text is indented 4 spaces. (Put a blank line between each
-term and  its definition to spread things out more.)
-
-Here's a "line block" (note how whitespace is honored):
-
-| Line one
-|   Line too
-| Line tree
-
-and images can be specified like so:
-
-![example image](https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=300&h=300&fit=crop "An exemplary image")
-
-Inline math equation: $\omega = d\phi / dt$. Display
-math should get its own line like so:
-
-$$I = \int \rho R^{2} dV$$
+The site is still somewhat of a WIP, so I haven't gotten around to pushing it out for production use, but here's the Github: https://github.com/alokthakrar/elockedin

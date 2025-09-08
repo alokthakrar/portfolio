@@ -2,7 +2,8 @@
 layout: post
 title: got blood? 
 description: What if we can make blood distribution and donations more efficient? 1st Place Health Track, MongoDB — HackMercedX
-thumbnail: /assets/images/thumbnails/stippledalok.png
+thumbnail: /assets/images/projects/got_blood.png
+redirect: https://devpost.com/software/got-blood
 ---
 
 Example modified from [here](http://www.unexpected-vortices.com/sw/rippledoc/quick-markdown-example.html){:target="_blank"}.

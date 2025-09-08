@@ -1,8 +1,9 @@
 ---
 layout: post
-title: Project 5
-description: another project
-thumbnail: /assets/images/thumbnails/stippledalok.png
+title: UCSBites
+description: Pairing users togerher in dining halls based on multimodal preferences using vector databases. 
+thumbnail: /assets/images/projects/bites.png
+redirect: https://devpost.com/software/ucsbites
 ---
 
 Example modified from [here](http://www.unexpected-vortices.com/sw/rippledoc/quick-markdown-example.html){:target="_blank"}.

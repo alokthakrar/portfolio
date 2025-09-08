@@ -1,7 +1,7 @@
 ---
 title: Light Sculpture
 description: A project that uses lighted rods and an Arduino to create a light show on your desk. Modeled, machined, and programmed from scratch.
-thumbnail: https://2024mechatronicsalokthakrar.weebly.com/uploads/1/3/8/9/138999599/my-completed-moire-disk.gif
+thumbnail: /assets/images/projects/light_sculpture.png
 redirect: https://2024mechatronicsalokthakrar.weebly.com/light-sculpture.html
 ---
 

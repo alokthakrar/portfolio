@@ -1,7 +1,7 @@
 ---
 title: Kinetic Sculpture
 description: A capstone project that integrates engineering, programming, art, and manufacturing to create patterns of motion using the Moire effect.
-thumbnail: https://2024mechatronicsalokthakrar.weebly.com/uploads/1/3/8/9/138999599/my-completed-moire-disk.gif
+thumbnail: /assets/images/projects/kinetic.png
 redirect: https://2024mechatronicsalokthakrar.weebly.com/kinetic-sculpture.html
 ---
 

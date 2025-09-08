@@ -48,16 +48,19 @@ collections:
     output: true
     permalink: /projects/:name/
     order:
-      - Robotics23-24.md
-      - Robotics22-23.md
       - gantry-game.md
       - eloify.md
       - kinetic-sculpture.md
-      - got-blood.md
-      - UCSBites.md
-      - post-pipeline.md
       - quizbowl-bot.md
+      - got-blood.md
+      - Instruct-Docs.md
+      - UCSBites.md
+      - light-sculpture.md
+      - post-pipeline.md
       - LSB.md
+      - Robotics23-24.md
+      - Robotics22-23.md
+      
 
   timeline:
     output: false
@@ -69,6 +72,7 @@ sass:
 
 include:
   - _pages
+  - assets/
 
 exclude:
   - README.md
