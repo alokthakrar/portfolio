@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/tiny-slider.css">
+
+        <h1 class="post-headline">Alok Thakrar</h1>
+        <h3 class="post-description">EECS @ UC Berkeley</h3>
+
+        <div class="links scroll">
+        <a href="/">Home</a>
+        <a href="/projects/">Projects</a>
+        
+        <a href="/timeline/">Timeline</a>
+</div>
+
+
+        <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>eloify | Alok Thakrar</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="eloify" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="use the ELO rating system to streamline studying." />
+<meta property="og:description" content="use the ELO rating system to streamline studying." />
+<link rel="canonical" href="https://alokthakrar.github.io/projects/eloify/" />
+<meta property="og:url" content="https://alokthakrar.github.io/projects/eloify/" />
+<meta property="og:site_name" content="Alok Thakrar" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-09-11T18:54:30+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="eloify" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-09-11T18:54:30+00:00","datePublished":"2025-09-11T18:54:30+00:00","description":"use the ELO rating system to streamline studying.","headline":"eloify","mainEntityOfPage":{"@type":"WebPage","@id":"https://alokthakrar.github.io/projects/eloify/"},"url":"https://alokthakrar.github.io/projects/eloify/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+        <!-- insert favicons, used https://realfavicongenerator.net/ -->
+<link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+<link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="/assets/favicon/site.webmanifest" />
+
+
+        <!-- MathJax -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+     processEscapes: true
+    }
+  });
+</script>
+
+
+        <!-- Load fontawesome here for faster loadtimes: https://stackoverflow.com/a/35880730/9523246 -->
+        <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v6.7.2/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+
+    </head>
+
+    <body>
+        <main>
+            <article>
+                <h1 class="post-headline">eloify</h1>
+<p class="meta"><small>September 11, 2025</small></p>
+
+<h1 id="the-project">The Project</h1>
+
+<p>I really love chess puzzles. Like magic, websites like lichess or chess-tempo managed to extract interesting positions, use crowdsourcing to find which ones were actually tactically challenging, and serve users puzzles which match their skill levels.</p>
+
+<p>The way this system works is through ELO. ELO is a system generally used in PvP style games, where each user is assigned a prediction of their skill that goes up or down relative to their wins and losses. If you beat a better opponent, your predicted skill goes up by a larger quantity than a weaker opponent.</p>
+
+<p>Chess puzzles are a slight tweak to this system. It treats both puzzles and users as a part of the <em>same pool</em>, but as users that can never go up against one another. In this way, both puzzles and users can be evaluated relative to their peers, allowing users to get matched with tactics targeted towards their rating.</p>
+
+<p>Eloify generalizes this process. What if instead of being restricted to chess puzzles, you could drop in your course textbook or exams and turn that into a meaningful question bank to be queried?</p>
+
+<h2 id="implementation">Implementation</h2>
+<h3 id="architecture">Architecture</h3>
+<p>I used React, Django, and PostgreSQL as the foundational frameworks of the project. For frontend, I used the tried-and-tested React Bootstrap pretty extensively for beautiful, prebuilt components with minimal boilerplate and setup required.</p>
+
+<h3 id="documents">Documents</h3>
+
+<p>After experimenting with some OCR and document querying models, I found these to ultimately be ineffective. There exists no centralized dataset for question and answer segmentation for document layout, and fine-tuning existing models would likely be a labourious process requiring copious amounts of training data.</p>
+
+<p>I instead decided to use a functional extension of the VQA built into multimodal LLMs. In my case, I feed these into a gemini flask model, then query the model for structured JSON of all questions provided on the page. Later, I can either scrape corresponding solutions or generate solutions and test cases on the fly. On the site, users can drag-and-drop questions into the applications and place them into study sets, which can be accessed by all users.</p>
+
+<h3 id="code">Code</h3>
+
+<p>Another interesting challenge was code — how can you create an environment in which users can run Python snippets for validation of Python exams, while having it be correctly sanitized? The solution lied in Docker. This was my first time using Docker, period! My solution involved creating a new container for each user, with limited scope and resources, and allowing them to run their code in that traiged environment, free from any injection attacks. Setting this up was definitely pretty cool, and is a tool I’m definitely keeping in my toolbox for future websites.</p>
+
+<p>Most other features served to be pretty standard problems, including users, question storage and retrieval, and LLM oriented question tagging.</p>
+
+<p>The site is still somewhat of a WIP, so I haven’t gotten around to pushing it out for production use, but here’s the Github: https://github.com/alokthakrar/elockedin</p>
+
+
+<!-- Comments only for posts -->
+
+
+            </article>
+        </main>
+
+        <footer>
+          <p class="copy">
+            <small> © Alok Thakrar 2025
+                    | Powered by Jekyll and
+                    <a target="_blank" href="https://github.com/jitinnair1/gradfolio/" rel="noopener noreferrer">Gradfolio</a>.
+                    Last updated on 11 September 2025
+            </small>
+          </p>
+
+        <div class="rounded-social-buttons">
+<a title="" class="social-button linkedin" href="https://www.linkedin.com/in/https://www.linkedin.com/in/alok-thakrar/" itemprop="sameAs" target="_blank" rel="noopener noreferrer">
+<i class="fab fa-linkedin"></i>
+</a><a title="" class="social-button github" href="https://www.github.com/https://github.com/alokthakrar" itemprop="sameAs" target="_blank" rel="noopener noreferrer">
+<i class="fab fa-github"></i>
+</a>
+</div>
+
+        </footer>
+
+        <!-- Google Analytics Tracking code -->
+<script src="https://cdn.jsdelivr.net/npm/ga-lite@1/dist/ga-lite.min.js" async></script>
+<script>
+var galite = galite || {};
+galite.UA = '';
+</script>
+
+    <script src="/assets/js/tiny-slider.js"></script>
+  </body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/tiny-slider.css">
+
+        <h1 class="post-headline">Alok Thakrar</h1>
+        <h3 class="post-description">EECS @ UC Berkeley</h3>
+
+        <div class="links scroll">
+        <a href="/">Home</a>
+        <a href="/projects/">Projects</a>
+        
+        <a href="/timeline/">Timeline</a>
+</div>
+
+
+        <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Brainrot Generator | Alok Thakrar</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Brainrot Generator" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Uses open source TTS models, MoviePy, and Reddit + YouTube APIs to automate reddit stories." />
+<meta property="og:description" content="Uses open source TTS models, MoviePy, and Reddit + YouTube APIs to automate reddit stories." />
+<link rel="canonical" href="https://alokthakrar.github.io/projects/post-pipeline/" />
+<meta property="og:url" content="https://alokthakrar.github.io/projects/post-pipeline/" />
+<meta property="og:site_name" content="Alok Thakrar" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-09-11T18:54:30+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Brainrot Generator" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-09-11T18:54:30+00:00","datePublished":"2025-09-11T18:54:30+00:00","description":"Uses open source TTS models, MoviePy, and Reddit + YouTube APIs to automate reddit stories.","headline":"Brainrot Generator","mainEntityOfPage":{"@type":"WebPage","@id":"https://alokthakrar.github.io/projects/post-pipeline/"},"url":"https://alokthakrar.github.io/projects/post-pipeline/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+        <!-- insert favicons, used https://realfavicongenerator.net/ -->
+<link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+<link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="/assets/favicon/site.webmanifest" />
+
+
+        <!-- MathJax -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+     processEscapes: true
+    }
+  });
+</script>
+
+
+        <!-- Load fontawesome here for faster loadtimes: https://stackoverflow.com/a/35880730/9523246 -->
+        <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v6.7.2/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+
+    </head>
+
+    <body>
+        <main>
+            <article>
+                <h1 class="post-headline">Brainrot Generator</h1>
+<p class="meta"><small>September 11, 2025</small></p>
+
+<h1 id="brainrot-pipeline">Brainrot Pipeline</h1>
+<p>I’m unfortunately a victim to the IG reels epidemic, reddit stories included. But after I got a few on my feed, I realized that this would be relatively simple to automate, and go even further.</p>
+
+<h2 id="brainrot-pipeline-1">Brainrot Pipeline</h2>
+<p>The pipeline is relatively intuitive. Posts are scraped from user-provided subreddits (e.g. Malicious Compliance) and shorter ones are selected. The bot then passes this into Kokoro https://huggingface.co/hexgrad/Kokoro-82M, an open source TTS model which can be run locally, which provides the voiceover. The voiceover is pasted over a video of Minecraft parkour or Subway Surfers, subtitles are generated through MoviePy, and the post gets uploaded to Youtube Shorts automatically.</p>
+
+<h2 id="wip-the-next-step">WIP (The next step)</h2>
+<p>The reason why I ultimately set up this pipeline was actually for a slightly different purpose — a generalized paper scraper. It’d go through the most recent hot papers in CS, bio, physics, etc, generate a silly summary using a Peter Griffin voice with an LLM, and paste that under the same parkour and subtitle style videos. This, however, requires data to fine-tune the voice model to sound like a fictional character (e.g. Peter Griffin) I’m currently working on a method of using open-source subtitles to automatically clip out relevant character voices, and to feed that into a data-bank of weights for public use. Will update once/if complete, but the end result should hopefully be pretty cool!</p>
+
+
+<!-- Comments only for posts -->
+
+
+            </article>
+        </main>
+
+        <footer>
+          <p class="copy">
+            <small> © Alok Thakrar 2025
+                    | Powered by Jekyll and
+                    <a target="_blank" href="https://github.com/jitinnair1/gradfolio/" rel="noopener noreferrer">Gradfolio</a>.
+                    Last updated on 11 September 2025
+            </small>
+          </p>
+
+        <div class="rounded-social-buttons">
+<a title="" class="social-button linkedin" href="https://www.linkedin.com/in/https://www.linkedin.com/in/alok-thakrar/" itemprop="sameAs" target="_blank" rel="noopener noreferrer">
+<i class="fab fa-linkedin"></i>
+</a><a title="" class="social-button github" href="https://www.github.com/https://github.com/alokthakrar" itemprop="sameAs" target="_blank" rel="noopener noreferrer">
+<i class="fab fa-github"></i>
+</a>
+</div>
+
+        </footer>
+
+        <!-- Google Analytics Tracking code -->
+<script src="https://cdn.jsdelivr.net/npm/ga-lite@1/dist/ga-lite.min.js" async></script>
+<script>
+var galite = galite || {};
+galite.UA = '';
+</script>
+
+    <script src="/assets/js/tiny-slider.js"></script>
+  </body>
+
+</html>
